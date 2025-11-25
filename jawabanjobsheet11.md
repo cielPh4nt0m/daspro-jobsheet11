@@ -123,11 +123,164 @@ After :
 ###   Percobaan 3:  Membuat Fungsi dengan Nilai Kembalian
 
 1. Jelaskan secara singkat kapan suatu fungsi membutuhkan nilai kembalian (return value) dan kapan fungsi tidak perlu mengembalikan nilai. Berikan minimal satu contoh dari program kafe pada Percobaan 3 untuk masing-masing kasus.
+
+   Jawaban :
+
+   1. Fungsi yang membutuhkan nilai kembalian (return value)
+
+Suatu fungsi membutuhkan nilai kembalian jika hasil perhitungan atau proses di dalam fungsi tersebut masih akan digunakan kembali oleh bagian program lain—misalnya untuk disimpan dalam variabel, ditampilkan, atau diproses lagi.
+
+Contoh dari program kafe (Percobaan 3):
+```
+public static int hitungTotalHarga(int pilihanMenu, int banyakItems) {
+    int[] hargaItems = {15000, 20000, 22000, 12000, 10000, 18000};
+    int hargaTotal = hargaItems[pilihanMenu - 1] * banyakItems;
+    return hargaTotal;   // nilai dikembalikan ke pemanggil
+}
+```
+Fungsi hitungTotalHarga() mengembalikan nilai total harga, yang kemudian digunakan di main():
+```
+int totalHarga = hitungTotalHarga(pilihanMenu, banyakItems);
+```
+2. Fungsi yang tidak membutuhkan nilai kembalian (void)
+
+Fungsi tidak membutuhkan nilai kembalian jika tugasnya hanya melakukan aksi, seperti menampilkan output, membaca input, atau mengubah data tanpa perlu memberikan hasil kembali ke pemanggil.
+
+Contoh fungsi void untuk program kafe (modifikasi sederhana)
+
+Misalnya kita membuat fungsi untuk menampilkan daftar menu:
+```
+public static void tampilkanMenu() {
+    System.out.println("=== Daftar Menu Kafe ===");
+    System.out.println("1. Kopi Hitam    - Rp 15000");
+    System.out.println("2. Cappuccino    - Rp 20000");
+    System.out.println("3. Latte         - Rp 22000");
+    System.out.println("4. Teh Manis     - Rp 12000");
+    System.out.println("5. Air Mineral   - Rp 10000");
+    System.out.println("6. Coklat Panas  - Rp 18000");
+}
+```
+Fungsi ini hanya menampilkan menu dan tidak perlu mengembalikan nilai apa pun.
+
+Pemanggilannya di main:
+
+tampilkanMenu();
   
 2. Fungsi hitungTotalHargaNoAbsen saat ini mengembalikan total harga berdasarkan pilihanMenu dan jumlahPesanan. Sebutkan tipe data nilai kembalian dan dua buah parameter yang digunakan fungsi tersebut. Jelaskan arti masing-masing parameter dalam konteks program kafe.
 
+   Jawaban :
+
+   1. Tipe data nilail kembalian : Fungsi hitungTotalHargaNoAbsen mengembalikan tipe data int.Fungsi ini menghasilkan angka bilangan bulat yaitu total harga yang dimana harus dibayar pelanggan.
+  
+   2. Dua Parameter yang digunakan :
+
+       parameternya adalah :
+
+      A. int pilihanMenu
+      - Merupakan nomor menu yang dipilih pelanggan.
+      - nilai ini dipakai untuk menentukan harga per item dari array harga
+        
+      B. int jumlahPesanan
+      - Merupakan jumlah item yang ingin dibeli pelanggan
+      - nilai ini digunakan untuk menghitung total harga
+
 3. Modifikasi kode di atas sehingga fungsi hitungTotalHargaNoAbsen dapat menerima kodePromo. Jika kodePromo adalah "DISKON50", maka mendapat diskon 50% dari totalHarga dan tampilkan diskon. Jika kodePromo adalah "DISKON30", maka mendapat diskon 30% dari totalHarga dan tampilkan diskon. Jika tidak ada kode promo yang berlaku, tampilkan kode invalid dan tidak ada pengurangan total harga totalHarga.
 
+   Jawaban :
+
+   <img width="984" height="996" alt="Screenshot 2025-11-25 143848" src="https://github.com/user-attachments/assets/927b4571-cd74-49ef-b681-3ad77e7273d9" />
+
 4. Modifikasi kode di atas sehingga bisa memilih beberapa jenis menu berbeda serta menampilkan total keseluruhan pesanan. Bagaimana memodifikasi program sehingga pengguna dapat: memesan lebih dari satu jenis menu (misalnya menu 1 dan 3 sekaligus), dan menampilkan total keseluruhan pesanan (gabungan dari semua jenis menu)? 
+
+Jawaban : 
+```
+import java.util.Scanner;
+
+public class cafe13 {
+    public static int hitungTotalHarga(int pilihanMenu, int banyakItems, String kodePromo) {
+        int[] hargaItems = {15000, 20000, 22000, 12000, 10000, 18000};
+        int hargaTotal = hargaItems[pilihanMenu - 1] * banyakItems;
+        double diskon = 0;
+
+        
+        if (kodePromo.equalsIgnoreCase("DISKON50")) {
+            diskon = hargaTotal * 0.5;
+            System.out.println("Diskon 50%: Rp " + (int) diskon);
+        } 
+        else if (kodePromo.equalsIgnoreCase("DISKON30")) {
+            diskon = hargaTotal * 0.3;
+            System.out.println("Diskon 30%: Rp " + (int) diskon);
+        } 
+        else {
+            System.out.println("Kode promo invalid, tidak ada diskon.");
+        }
+
+        
+        int totalSetelahDiskon = (int) (hargaTotal - diskon);
+        return totalSetelahDiskon;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int totalKeseluruhan = 0;
+        boolean lanjut = true;
+
+        System.out.print("Masukkan kode promo (DISKON50 / DISKON30 / LAINNYA): ");
+        String kodePromo = sc.nextLine();
+
+        while (lanjut) {}
+
+        System.out.print("Masukkan nomor menu yang ingin anda pesan: ");
+        int pilihanMenu = sc.nextInt();
+
+        System.out.print("Masukkan jumlah item yang ingin dipesan: ");
+        int banyakItems = sc.nextInt();
+
+        int totalPermenu = hitungTotalHarga(pilihanMenu, banyakItems, kodePromo);
+        totalKeseluruhan += totalPermenu;
+
+        System.out.println("Apakah ingin memesan menu lain? (yes/no): ");
+        sc.nextLine(); 
+        String jawab = sc.nextLine();
+
+        if (jawab.equalsIgnoreCase("no")) {
+            lanjut = false;
+        }
+
+        System.out.println("\n=======================================");
+        System.out.println("Total keseluruhan pesanan: Rp " + totalKeseluruhan);
+        System.out.println("\n=======================================");
+    }
+}
+```
+
+Hasilnya : 
+
+<img width="531" height="336" alt="Screenshot 2025-11-25 152206" src="https://github.com/user-attachments/assets/0edaec6e-f29b-471f-88b7-33aba5bc07e8" />
+
+## Percobaan 4: Fungsi Varargs
+
+1. Jelaskan mengapa penulisan parameter di praktikum 4 ditulis dengan String...namaPengunjung!
+
+   Jawaban :
+
+   Parameter String...namaPengunjung digunakan untuk membuat metode lebih fleksibel sehingga bisa menerima banyak argumen String tanpa harus membuat array secara manual. Metode ini tetap di akses seperti array di dalam body metode
+   
+2. Modifikasi method daftarPengunjung menggunakan for-each loop.
+
+   Jawaban :
+
+   <img width="802" height="355" alt="Screenshot 2025-11-25 160335" src="https://github.com/user-attachments/assets/95c4df95-1d61-4fa9-bd2e-b706219db48e" />
+
+   
+3. Bisakah menggunakan dua tipe data varaargs dalam satu fungsi? Jelaskan jawaban Anda berdasarkan aturan varargs di Java, dan berikan contohnya!
+
+   Jawaban :
+   
+6. Jelaskan apa yang terjadi jika fungsi daftarPengunjung dipanggil tanpa argumen.Apakah program akan error saat kompilasi, error saat dijalankan, atau tetap berjalan?Jika tetap berjalan, bagaimana output yang dihasilkan?
+
+   Jawaban : 
+
 
 
