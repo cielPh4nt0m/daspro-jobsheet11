@@ -277,10 +277,64 @@ Hasilnya :
 3. Bisakah menggunakan dua tipe data varaargs dalam satu fungsi? Jelaskan jawaban Anda berdasarkan aturan varargs di Java, dan berikan contohnya!
 
    Jawaban :
+
+   Tdak bisa, java tidak menginzinkan 2 parameter varags dalam satu fungsi, karena berkaitan dengan aturan dasar varags dan cara compailer menangani parameter varags.
+
+   Contohnya :
+
+   Dalam Java, varargs (variable-length argument) dideklarasikan dengan:
+```
+type... name
+```
+Java hanya mengizinkan satu varargs per method, dan varargs harus berada di posisi terakhir dalam parameter list.
+
+Karena varargs pada dasarnya diperlakukan sebagai array tunggal oleh compiler.
+Jika diperbolehkan dua varargs, contoh:
+```
+void test(int... a, String... b)
+```
+Compiler tidak akan bisa membedakan mana argumen yang masuk ke varargs pertama dan mana ke yang kedua, sehingga menimbulkan ambigu dalam pemanggilan fungsi.
    
-6. Jelaskan apa yang terjadi jika fungsi daftarPengunjung dipanggil tanpa argumen.Apakah program akan error saat kompilasi, error saat dijalankan, atau tetap berjalan?Jika tetap berjalan, bagaimana output yang dihasilkan?
+4. Jelaskan apa yang terjadi jika fungsi daftarPengunjung dipanggil tanpa argumen.Apakah program akan error saat kompilasi, error saat dijalankan, atau tetap berjalan?Jika tetap berjalan, bagaimana output yang dihasilkan?
+
+   Jawaban :
+
+   Jika daftar pengunjung dipanggil tanpa argumen program tetap berjalan. parameter String...nama pengunjung artinya bisa menerima berapapun jumlah argumen, java akan memperlakukan pemanggilan tanpa argumen sebagai pengirimnya array berstirng ukuran 0. Kompilator tidak keberatan dan saat dijalankan pun tidak ada masalah pada loop. Loop for hanya tidak mengeksekusi isi tubunya karena array koosong.
+
+   OUTPUT YANG DIHASILKAN :
+   ```
+   Daftar Nama Pengunjung:
+   ```
+
+## Percobaan 5: Pembuatan Kode Program, dengan Fungsi versus Tanpa Fungsi Waktu 
+
+1.	Sebutkan tahapan dan urutan eksekusi program pada Percobaan 5, mulai dari program dijalankan hingga menampilkan luas persegi panjang dan volume balok!
 
    Jawaban : 
+
+2.	Tuliskan output yang dihasilkan program HitungBalokNoAbsen jika pengguna memasukkan panjang = 4, lebar = 3, dan tinggi = 5. Jelaskan secara singkat alur jalannya program sampai output tersebut muncul.
+
+   Jawaban : 
+
+3.	Apakah output dari program di bawah ini kemudian jelaskan alur jalannya program tersebut!
+
+   Jawaban : 
+
+4.	Pada saat apakah fungsi yang kita buat harus menggunakan parameter atau tidak? Pada saat apakah fungsi yang kita buat harus memiliki nilai kembalian atau tidak? Jelaskan!
+
+   Jawaban : 
+
+5.	Jelaskan kapan sebuah fungsi sebaiknya menggunakan parameter dan kapan fungsi boleh tanpa parameter, dengan mengacu pada fungsi hitungLuas dan hitungVolume di Percobaan 5.
+
+   Jawaban : 
+
+6.	Jelaskan kapan sebuah fungsi sebaiknya memiliki nilai kembalian (return value) dan kapan tidak perlu memiliki nilai kembalian, dengan mengacu pada fungsi main, hitungLuas, dan hitungVolume.
+
+   Jawaban : 
+
+   
+
+
 
 
 
