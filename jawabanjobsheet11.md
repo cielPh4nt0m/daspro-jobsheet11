@@ -312,9 +312,33 @@ Compiler tidak akan bisa membedakan mana argumen yang masuk ke varargs pertama d
 
    Jawaban : 
 
+   a. program dijalankan(eksekusi dimulai dari tahap method main)
+
+   b. Membuat objek scanner(untuk membaca input)
+
+   c. Deklarasi variabel(menyiapkan variable untuk menampung nilai panjang,lebar,tinggi dan volume)
+
+   d. meminta dan membaca nilai 
+
+   e. meminta dan membaca nilai lebar 
+
+   f. mrminta dan membaca nilai tinggi
+
+   g. mrmanggil method hitung luas(p, l)
+
+   h. memanggil method hitung volume(t, p, l)
+
+   i. menutup scanner
+
+   j. menrunkan codingan 
+
+   k. hasil output keluar
+   
 2.	Tuliskan output yang dihasilkan program HitungBalokNoAbsen jika pengguna memasukkan panjang = 4, lebar = 3, dan tinggi = 5. Jelaskan secara singkat alur jalannya program sampai output tersebut muncul.
 
    Jawaban : 
+
+   Ketika program dijalankan, eksekusi dimulai dari method main(). Program kemudian meminta pengguna untuk memasukkan nilai panjang, lebar, dan tinggi balok. Setelah pengguna memasukkan panjang 4, lebar 3, dan tinggi 5, program memanggil method hitungLuas(4, 3) untuk menghitung luas alas persegi panjang. Di dalam method tersebut, nilai luas dihitung dengan rumus 4 * 3 sehingga diperoleh hasil 12, kemudian nilai ini dikembalikan ke method main() dan ditampilkan sebagai “Luas persegi panjang adalah 12”. Selanjutnya, program memanggil method hitungVolume(5, 4, 3) untuk menghitung volume balok. Method ini terlebih dahulu memanggil kembali hitungLuas(4, 3) untuk mendapatkan luas alas, yaitu 12, kemudian mengalikan hasil tersebut dengan tinggi 5, menghasilkan volume 60. Nilai ini dikembalikan ke main() dan ditampilkan sebagai “Volume balok adalah 60”. Setelah semua output ditampilkan, program selesai dijalankan.
 
 3.	Apakah output dari program di bawah ini kemudian jelaskan alur jalannya program tersebut!
 
@@ -333,6 +357,7 @@ Compiler tidak akan bisa membedakan mana argumen yang masuk ke varargs pertama d
    Jawaban : 
 
    
+
 
 
 
