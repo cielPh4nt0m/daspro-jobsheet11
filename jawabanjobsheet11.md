@@ -336,7 +336,7 @@ Compiler tidak akan bisa membedakan mana argumen yang masuk ke varargs pertama d
    
 2.	Tuliskan output yang dihasilkan program HitungBalokNoAbsen jika pengguna memasukkan panjang = 4, lebar = 3, dan tinggi = 5. Jelaskan secara singkat alur jalannya program sampai output tersebut muncul.
 
-   Jawaban : 
+   Jawaban :
 
    Ketika program dijalankan, eksekusi dimulai dari method main(). Program kemudian meminta pengguna untuk memasukkan nilai panjang, lebar, dan tinggi balok. Setelah pengguna memasukkan panjang 4, lebar 3, dan tinggi 5, program memanggil method hitungLuas(4, 3) untuk menghitung luas alas persegi panjang. Di dalam method tersebut, nilai luas dihitung dengan rumus 4 * 3 sehingga diperoleh hasil 12, kemudian nilai ini dikembalikan ke method main() dan ditampilkan sebagai “Luas persegi panjang adalah 12”. Selanjutnya, program memanggil method hitungVolume(5, 4, 3) untuk menghitung volume balok. Method ini terlebih dahulu memanggil kembali hitungLuas(4, 3) untuk mendapatkan luas alas, yaitu 12, kemudian mengalikan hasil tersebut dengan tinggi 5, menghasilkan volume 60. Nilai ini dikembalikan ke main() dan ditampilkan sebagai “Volume balok adalah 60”. Setelah semua output ditampilkan, program selesai dijalankan.
 
@@ -344,19 +344,341 @@ Compiler tidak akan bisa membedakan mana argumen yang masuk ke varargs pertama d
 
    Jawaban : 
 
+  Program dimulai dengan memanggil metode sum(1, 1) di dalam fungsi utama, yang menghitung penjumlahan 1 dan 1, menghasilkan nilai 2, yang kemudian disimpan di dalam variabel temp. Selanjutnya, program memanggil metode DisplaySum(temp, 5), yang setara dengan memanggil DisplaySum(2, 5). Di dalam metode DisplaySum, program memanggil metode sum(2, 5) lagi untuk menghitung jumlah kedua nilai ini, yaitu 2 + 5 = 7. Nilai 7 ini kemudian diteruskan sebagai argumen ke metode DisplayUpTo(7). Metode ini menjalankan sebuah loop dari j = 1 sampai j = 7, dan dalam setiap iterasi, program mencetak karakter "j" tanpa pindah ke baris baru. Karena loop berjalan sebanyak 7 kali, output akhir dari program adalah rangkaian tujuh huruf 'j' yang muncul berturut-turut sebagai jjjjjjj. ...
+  
 4.	Pada saat apakah fungsi yang kita buat harus menggunakan parameter atau tidak? Pada saat apakah fungsi yang kita buat harus memiliki nilai kembalian atau tidak? Jelaskan!
 
    Jawaban : 
+
+   Fungsi perlu menggunakan parameter ketika ingin mengirim data dari luar fungsi supaya fungsi bisa bekerja dengan nilai tersebut. Kalau fungsi hanya melakukan sesuatu yang tidak dibutuhkan oleh data dari luar maka fungsi tidak perlu parameter.
+
+   Fungsi hanya perlu memiliki nilai kembalian jika kita membuktikan hasil dari proses yang dilakukan fungsi tesebut untuk dipakai lagi pada bagian program lain.
 
 5.	Jelaskan kapan sebuah fungsi sebaiknya menggunakan parameter dan kapan fungsi boleh tanpa parameter, dengan mengacu pada fungsi hitungLuas dan hitungVolume di Percobaan 5.
 
    Jawaban : 
 
+ Fungsi hitungLuas dan hitungVolume dimana kita memahami kapan sebuah fungsi perlu memakai parameter dan kapan tidak. Fungsi hitungLuas menggunakan parameter karena fungsi ini mebutuhkan nilai panjag dan lebar dari luar fungsi untuk menghitung luas. Fungsi ini butuh tiga nilai, yaitu tinggi serta panjang dan lebar, supaya bisa menghitung volume balok. Karena nilai-nilai itu berasal dari input pengguna, maka fungsi harus menerima parameter agar bisa memproses.
+
+ Sebuah fungsi boleh tanpa paramater jika fungsi tersebut tidak membutuhkan data dari luar dan sudah memiliki seua informasi yang dibutuhkan di dalam dirinya sendiri. 
+ 
 6.	Jelaskan kapan sebuah fungsi sebaiknya memiliki nilai kembalian (return value) dan kapan tidak perlu memiliki nilai kembalian, dengan mengacu pada fungsi main, hitungLuas, dan hitungVolume.
 
    Jawaban : 
 
+Fungsi sebaiknya memiliik nilai kembalian jika hasil dari proses di dalalm fungsi tersebut masih diperlukan oleh bagian program lain. Sebaliknya fungsi tidak perlu memilki nilai kembalian jika tugasnya hanya melakukan aksi tanpa harus mengirim hasil apapun
+
+### TUGAS 
+
+1.	Buatlah sebuah class KubusNoAbsen yang di dalamnya terdapat fungsi untuk menghitung volume kubus dan luar permukaan kubus!
+
+   Jawaban : 
+
+   <img width="948" height="527" alt="Screenshot 2025-12-01 214443" src="https://github.com/user-attachments/assets/aeee3a70-e9fe-4e8b-9ba3-b660ca50957b" />
+
+  outputnya : 
+
+  <img width="248" height="150" alt="Screenshot 2025-12-01 214521" src="https://github.com/user-attachments/assets/30597d56-d06d-41e6-883c-4f0c72d73e7a" />
+
+2.	Di suatu kelas, terdapat N mahasiswa yang mengikuti satu mata kuliah. Nilai tiap mahasiswa untuk mata kuliah tersebut akan diinputkan oleh pengguna dan disimpan dalam sebuah array 1 dimensi berukuran N. Buatlah sebuah class NilaiMahasiswaNoAbsen yang di dalamnya terdapat beberapa fungsi berikut: a. Fungsi isianArray untuk:
+
+- 	Mengisi elemen-elemen array dengan nilai yang diinputkan oleh user (jumlah elemen = N, dibaca dari input)
+  
+b.	Fungsi tampilArray untuk: 
+
+-	Menerima parameter berupa array nilai mahasiswa
+  
+-	Menampilkan seluruh nilai yang telah diinputkan
    
+c.	Fungsi hitTot untuk: 
+
+-	Menerima parameter berupa array nilai mahasiswa
+  
+-	Menghitung dan mengembalikan total nilai seluruh mahasiswa (return tipe int atau double)
+   
+d.	Fungsi main untuk: 
+
+-	Membaca nilai N (jumlah mahasiswa) dari input pengguna
+  
+-	Membuat array dengan ukuran N
+  
+-	Memanggil fungsi isianArray, tampilArray, dan hitTot
+  
+-	Menampilkan total nilai yang dikembalikan oleh fungsi hitTot
+
+ Jawaban : 
+ ```
+import java.util.Scanner;
+
+ public class NilaiMahasiswa13 {
+    
+    //isi array dengan nilai dari user 
+    static void isianArray(int[] nilai) {
+        Scanner cs = new Scanner(System.in);
+        for (int i = 0; i < nilai.length; i++) {
+            System.out.print("Masukkan nilai mahasiswa ke-" + (i+1) + ":");
+            nilai[i] =cs.nextInt();
+        }
+    }
+
+    //menampilkan isi array
+     static void tampilArray(int[] nilai) {
+        System.out.println("Nilai mahasiswa:");
+        for (int i = 0; i < nilai.length; i++) {
+            System.out.print(nilai[i] + " ");
+        }
+        System.out.println();
+    }
+    
+    //hitung total nilai
+    static int hitTot(int[] nilai) {
+        int total = 0;
+        for (int i = 0; i < nilai.length; i++) {
+            total += nilai[i];
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int N = sc.nextInt();
+
+        int[] arrNilai = new int[N];
+
+        isianArray(arrNilai);
+        tampilArray(arrNilai);
+
+        int total = hitTot(arrNilai);
+        System.out.println("Total nilai: " + total);
+
+        sc.close();
+    }
+ }
+ ```
+ Outputnya : 
+```
+Masukkan jumlah mahasiswa: 3
+Masukkan nilai mahasiswa ke-1: 80
+Masukkan nilai mahasiswa ke-2: 75
+Masukkan nilai mahasiswa ke-3: 90
+Nilai mahasiswa:
+80 75 90 
+Total nilai: 245
+```
+3.	Ibu Mariana mengelola sebuah kafe. Berikut adalah rekap penjualan 5 menu dari hari pertama hingga ketujuh: 
+
+   <img width="889" height="222" alt="image" src="https://github.com/user-attachments/assets/401faa98-d480-44c6-a9fe-2f568d7201cd" />
+
+   a. Buatlah sebuah class RekapPenjualanCafeNoAbsen yang digunakan untuk menyimpan dan mengolah data penjualan 5 menu kafe dari hari pertama hingga hari ketujuh. Di dalam class tersebut, buat dan gunakan beberapa fungsi (method) berikut: 
+   
+ -	Fungsi untuk menginputkan data penjualan setiap menu untuk setiap hari (petunjuk: menggunakan array 2 dimensi).
+   
+-	Fungsi untuk menampilkan seluruh data penjualan dari hari pertama hingga hari terakhir dalam bentuk tabel
+  
+-	Fungsi untuk menampilkan menu yang memiliki total penjualan tertinggi selama tujuh hari (tampilkan nama menu dan total penjualannya).
+  
+-	Fungsi untuk menampilkan rata-rata penjualan untuk setiap menu selama tujuh hari (tampilkan nama menu dan nilai rata-ratanya).
+  
+Gunakan fungsi main untuk: 
+
+-	Memanggil fungsi input data penjualan,
+  
+-	Menampilkan seluruh data penjualan,
+  
+-	Menampilkan menu dengan penjualan tertinggi, dan
+
+-	Menampilkan rata-rata penjualan untuk setiap menu. 
+ 
+c.	Modifikasi program pada 3 (a) sehingga jumlah hari penjualan dan jumlah menu dibaca dari input pengguna, lalu sesuaikan ukuran array dan proses perhitungan agar tetap berjalan dengan benar. 
+
+Jawaban : 
+```
+import java.util.Scanner;
+
+public class RekapPenjualanCafe13 {
+
+    static Scanner sc = new Scanner(System.in);
+
+    // Fungsi input data penjualan
+    static void inputPenjualan(int[][] data, String[] menu) {
+        System.out.println("\n=== INPUT DATA PENJUALAN ===");
+
+        for (int i = 0; i < menu.length; i++) {
+            System.out.println("Menu: " + menu[i]);
+            for (int j = 0; j < data[i].length; j++) {
+                System.out.print("  Hari ke-" + (j + 1) + ": ");
+                data[i][j] = sc.nextInt();
+            }
+            System.out.println();
+        }
+    }
+
+    // Fungsi menampilkan tabel penjualan
+    static void tampilkanData(int[][] data, String[] menu) {
+        System.out.println("\n=== TABEL DATA PENJUALAN ===");
+        System.out.print("Menu/Hari\t");
+
+        for (int i = 1; i <= data[0].length; i++) {
+            System.out.print("H" + i + "\t");
+        }
+        System.out.println();
+
+        for (int i = 0; i < menu.length; i++) {
+            System.out.print(menu[i] + "\t");
+            for (int j = 0; j < data[i].length; j++) {
+                System.out.print(data[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    // Fungsi mencari menu dengan total penjualan tertinggi
+    static void menuTertinggi(int[][] data, String[] menu) {
+        int maxTotal = -1;
+        int indexMax = -1;
+
+        for (int i = 0; i < data.length; i++) {
+            int total = 0;
+            for (int j = 0; j < data[i].length; j++) {
+                total += data[i][j];
+            }
+            if (total > maxTotal) {
+                maxTotal = total;
+                indexMax = i;
+            }
+        }
+
+        System.out.println("\n=== MENU PENJUALAN TERTINGGI ===");
+        System.out.println("Menu: " + menu[indexMax]);
+        System.out.println("Total Penjualan: " + maxTotal);
+    }
+
+    // Fungsi menampilkan rata-rata per menu
+    static void rataRataMenu(int[][] data, String[] menu) {
+        System.out.println("\n=== RATA-RATA PENJUALAN MENU ===");
+
+        for (int i = 0; i < menu.length; i++) {
+            int total = 0;
+            for (int j = 0; j < data[i].length; j++) {
+                total += data[i][j];
+            }
+            double rata = (double) total / data[i].length;
+
+            System.out.println(menu[i] + " : " + rata);
+        }
+    }
+
+    // MAIN PROGRAM
+    public static void main(String[] args) {
+
+        System.out.println("=== PROGRAM REKAP PENJUALAN CAFE ===");
+
+        System.out.print("Masukkan jumlah menu: ");
+        int jumlahMenu = sc.nextInt();
+        sc.nextLine(); // buang enter
+
+        String[] menu = new String[jumlahMenu];
+
+        for (int i = 0; i < jumlahMenu; i++) {
+            System.out.print("Nama menu ke-" + (i + 1) + ": ");
+            menu[i] = sc.nextLine();
+        }
+
+        System.out.print("Masukkan jumlah hari penjualan: ");
+        int jumlahHari = sc.nextInt();
+
+        int[][] data = new int[jumlahMenu][jumlahHari];
+
+        inputPenjualan(data, menu);
+        tampilkanData(data, menu);
+        menuTertinggi(data, menu);
+        rataRataMenu(data, menu);
+    }
+}
+```
+Outputnya : 
+```
+=== PROGRAM REKAP PENJUALAN CAFE ===
+Masukkan jumlah menu: 5
+Nama menu ke-1: kopi
+Nama menu ke-2: teh 
+Nama menu ke-3: es kelapa muda
+Nama menu ke-4: roti bakar
+Nama menu ke-5: gorengan
+Masukkan jumlah hari penjualan: 7
+
+=== INPUT DATA PENJUALAN ===
+Menu: kopi
+  Hari ke-1: 20
+  Hari ke-2: 20
+  Hari ke-3: 25
+  Hari ke-4: 20
+  Hari ke-5: 10
+  Hari ke-6: 60
+  Hari ke-7: 10
+
+Menu: teh
+  Hari ke-1: 30
+  Hari ke-2: 80
+  Hari ke-3: 40
+  Hari ke-4: 10
+  Hari ke-5: 15
+  Hari ke-6: 20
+  Hari ke-7: 25
+
+Menu: es kelapa muda
+  Hari ke-1: 5
+  Hari ke-2: 9
+  Hari ke-3: 10
+  Hari ke-4: 25
+  Hari ke-5: 10
+  Hari ke-6: 5
+  Hari ke-7: 45
+
+Menu: roti bakar
+  Hari ke-1: 50
+  Hari ke-2: 8
+  Hari ke-3: 17
+  Hari ke-4: 18
+  Hari ke-5: 10
+  Hari ke-6: 30
+  Hari ke-7: 6
+
+Menu: gorengan
+  Hari ke-1: 15
+  Hari ke-2: 10
+  Hari ke-3: 16
+  Hari ke-4: 15
+  Hari ke-5: 10
+  Hari ke-6: 10
+  Hari ke-7: 55
+
+
+=== TABEL DATA PENJUALAN ===
+Menu/Hari       H1      H2      H3      H4      H5      H6      H7
+kopi    20      20      25      20      10      60      10
+teh     30      80      40      10      15      20      25
+es kelapa muda  5       9       10      25      10      5       45
+roti bakar      50      8       17      18      10      30      6
+gorengan        15      10      16      15      10      10      55
+
+=== MENU PENJUALAN TERTINGGI ===
+Menu: teh
+Total Penjualan: 220
+
+=== RATA-RATA PENJUALAN MENU ===
+kopi : 23.571428571428573
+teh : 31.428571428571427
+es kelapa muda : 15.571428571428571
+roti bakar : 19.857142857142858
+gorengan : 18.714285714285715
+```
+
+
+   
+
 
 
 
